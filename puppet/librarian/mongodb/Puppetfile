@@ -1,0 +1,8 @@
+
+#use the official puppet labs forge
+
+forge "http://forge.puppetlabs.com"
+
+mod "puppetlabs/mongodb", "0.1.0"
+
+
