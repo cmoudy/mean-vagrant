@@ -26,20 +26,9 @@ file { "/usr/local/src/mean":
 	require => User["meandev"]
 }
 
-#install preqs for nodejs puppet module
-package { 
-	[
-		"g++", 
-		"make"
-	] :
-	ensure => installed,
-	require => File["/usr/local/src/mean"]
-}
-
 #install nodejs and npm	
 class { 'nodejs':
-	version => 'v0.10.15',
-	require => Package['g++']
+	version => 'v0.10.15'
 }
 
 

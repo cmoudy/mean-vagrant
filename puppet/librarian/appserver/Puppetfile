@@ -3,6 +3,7 @@
 
 forge "http://forge.puppetlabs.com"
 
+mod "puppetlabs/stdlib", "4.1.0"
 mod "willdurand/nodejs", "0.0.3"
 
 
