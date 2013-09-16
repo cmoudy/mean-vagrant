@@ -28,7 +28,7 @@ file { "/usr/local/src/mean":
 
 #install nodejs and npm	
 class { 'nodejs':
-	version => 'v0.10.15'
+	version => 'v0.10.18'
 }
 
 
