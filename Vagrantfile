@@ -11,7 +11,7 @@ Vagrant::Config.run do |config|
 	config.vm.define :mongodb do |mongodb|
     		mongodb.vm.box = "ubuntu_precise64"
 		mongodb.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    		mongodb.vm.network :hostonly, "192.168.1.11"
+    		mongodb.vm.network :hostonly, "10.0.1.101"
 
 		# This allows symlinks to be created within the /vagrant root directory, 
   		# which is something librarian-puppet needs to be able to do. This might
@@ -31,11 +31,12 @@ Vagrant::Config.run do |config|
     			mongodb_puppet.manifest_file  = "mongo.pp"
 		end
   	end	
+  	
 	config.vm.define :appserver do |appserver|
     		appserver.vm.box = "ubuntu_precise64"
 		appserver.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    		appserver.vm.network :hostonly, "192.168.1.12"
-
+		appserver.vm.share_folder "mean", "/usr/local/src/mean/", "mean/", :create => true
+    		appserver.vm.network :hostonly, "10.0.1.102"
 		# This allows symlinks to be created within the /vagrant root directory, 
   		# which is something librarian-puppet needs to be able to do. This might
   		# be enabled by default depending on what version of VirtualBox is used.
@@ -54,7 +55,6 @@ Vagrant::Config.run do |config|
     			appserver_puppet.manifest_file  = "appserver.pp"
 		end
 		# define the name of your application here within the args e.g replace "mytestapp" with your app name
-		appserver.vm.provision :shell, :path => "shell/kickstart-app.sh",:args => "mytestapp"
-
+		appserver.vm.provision :shell, :path => "shell/kickstart-app.sh",:args => "mantras"
   	end
 end

@@ -20,6 +20,7 @@ else
 
 	#run an npm link to all the global packages we installed
 	npm link
+	
 
 	#create a special bower file to tell bower where to put vendor javascript files
 	#files will be under public/javascripts/vendor
@@ -45,4 +46,18 @@ else
 	#finally change the owner of everything to meandev user and group
 	cd $MEAN_DIR
 	chown -R meandev:meandev $1	
+	
 fi
+
+# Create and instantiate init script
+touch /etc/init.d/bootForever
+echo "#! /bin/sh" >> /etc/init.d/bootForever
+echo "# /etc/init.d/bootForever" >> /etc/init.d/bootForever
+echo "#" >> /etc/init.d/bootForever
+echo "" >> /etc/init.d/bootForever
+echo "/usr/local/bin/forever start "$1"/app.js" >> /etc/init.d/bootForever
+chmod 755 /etc/init.d/bootForever
+update-rc.d /etc/init.d/bootForever defaults
+
+echo "BootScript added"
+forever start $1/app.js
