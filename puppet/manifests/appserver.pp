@@ -70,5 +70,17 @@ package { 'nodeunit':
   provider => 'npm',
 }
 
+# install forever for testing
+package { 'forever':
+  ensure   => present,
+  provider => 'npm',
+}
+
+# install forever-monitor for testing
+package { 'forever-monitor':
+  ensure   => present,
+  provider => 'npm',
+}
+
 
 
