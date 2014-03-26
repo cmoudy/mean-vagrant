@@ -9,14 +9,9 @@ CONF = _config
 
 Vagrant::Config.run do |config|
 	config.vm.define :mongodb do |mongodb|
-    		mongodb.vm.box = "ubuntu_precise64"
+    	mongodb.vm.box = "ubuntu_precise64"
 		mongodb.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    		mongodb.vm.network :hostonly, "192.168.1.11"
-
-		# This allows symlinks to be created within the /vagrant root directory, 
-  		# which is something librarian-puppet needs to be able to do. This might
-  		# be enabled by default depending on what version of VirtualBox is used.
-  		mongodb.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+    	mongodb.vm.network :hostonly, "192.168.1.11"
 
 		# This shell provisioner installs librarian-puppet and runs it to install
   		# puppet modules. This has to be done before the puppet provisioning so that
@@ -32,14 +27,9 @@ Vagrant::Config.run do |config|
 		end
   	end	
 	config.vm.define :appserver do |appserver|
-    		appserver.vm.box = "ubuntu_precise64"
+    	appserver.vm.box = "ubuntu_precise64"
 		appserver.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    		appserver.vm.network :hostonly, "192.168.1.12"
-
-		# This allows symlinks to be created within the /vagrant root directory, 
-  		# which is something librarian-puppet needs to be able to do. This might
-  		# be enabled by default depending on what version of VirtualBox is used.
-  		appserver.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+    	appserver.vm.network :hostonly, "192.168.1.12"
 
 		# This shell provisioner installs librarian-puppet and runs it to install
   		# puppet modules. This has to be done before the puppet provisioning so that
