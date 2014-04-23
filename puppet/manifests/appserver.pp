@@ -36,7 +36,7 @@ class { 'nodejs':
 
 # install express
 package { 'express':
-  ensure   => present,
+  ensure   => '3.5.1',
   provider => 'npm',
 }
 
