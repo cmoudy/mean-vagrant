@@ -18,12 +18,14 @@ if [ "$FOUND_GIT" -ne '0' ]; then
   FOUND_YUM=$?
 
   if [ "${FOUND_YUM}" -eq '0' ]; then
+    yum -q -y build-essential
     yum -q -y makecache
     yum -q -y install git
     git config --global url."https://".insteadOf git://
     echo 'git installed.'
   elif [ "${FOUND_APT}" -eq '0' ]; then
     apt-get -q -y update
+    apt-get -q -y install build-essential
     apt-get -q -y install git
     git config --global url."https://".insteadOf git://
     echo 'git installed.'
