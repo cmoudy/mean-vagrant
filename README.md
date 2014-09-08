@@ -16,5 +16,5 @@ Vagrant Development Environment for Kick-Starting Developing an application in t
 
 #### Environment Details
     * Application Server IP = 192.168.1.11
-    * MogoDb Server IP = 192.168.1.12
+    * MongoDb Server IP = 192.168.1.12
 
