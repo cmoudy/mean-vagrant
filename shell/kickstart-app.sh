@@ -44,5 +44,12 @@ else
 
 	#finally change the owner of everything to meandev user and group
 	cd $MEAN_DIR
+
 	chown -R meandev:meandev $1	
+
+	#change to the app directory
+	cd $1 
+
+	#start express server
+	DEBUG=$1:* ./bin/www
 fi

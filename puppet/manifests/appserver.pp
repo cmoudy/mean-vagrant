@@ -35,8 +35,8 @@ class { 'nodejs':
 ##Install the required node modules using NPM
 
 # install express
-package { 'express':
-  ensure   => '3.5.1',
+package { 'express-generator':
+  ensure   => present,
   provider => 'npm',
 }
 
