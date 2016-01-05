@@ -8,7 +8,7 @@ group{ "meandev":
 	gid => 665
 }
 
-user{ "meandev":	
+user{ "meandev":
 	ensure => present,
 	gid => "meandev",
 	groups => ["adm"],
@@ -26,9 +26,9 @@ file { "/usr/local/src/mean":
 	require => User["meandev"]
 }
 
-#install nodejs and npm	
+#install nodejs and npm
 class { 'nodejs':
-	version => 'v0.10.26'
+	version => 'stable'
 }
 
 
@@ -48,6 +48,12 @@ package { 'jade':
 
 # install mongoose
 package { 'mongoose':
+  ensure   => present,
+  provider => 'npm',
+}
+
+# install gulp
+package { 'gulp':
   ensure   => present,
   provider => 'npm',
 }
