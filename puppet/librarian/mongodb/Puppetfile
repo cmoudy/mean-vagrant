@@ -3,6 +3,6 @@
 
 forge "http://forge.puppetlabs.com"
 
-mod "puppetlabs/mongodb", "0.7.0"
+mod "puppetlabs/mongodb", "0.11.0"
 
 

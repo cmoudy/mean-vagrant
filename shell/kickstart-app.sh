@@ -16,7 +16,7 @@ else
 
 	#be a good citizen and add in the mongo dep in the package.json file for your application
 	mv package.json package_json.orig
-	sed '10 i\    "mongoose" : ">= 3.6",' package_json.orig > package.json	
+	sed '10 i\    "mongoose" : ">= 4.3.4",' package_json.orig > package.json
 
 	#run an npm link to all the global packages we installed
 	npm link
@@ -27,7 +27,7 @@ else
 
 	mkdir public/javascripts/vendor
 
-	#install angular 
+	#install angular
 	bower install angular --allow-root
 
 	#install bootstrap-css
@@ -45,10 +45,10 @@ else
 	#finally change the owner of everything to meandev user and group
 	cd $MEAN_DIR
 
-	chown -R meandev:meandev $1	
+	chown -R meandev:meandev $1
 
 	#change to the app directory
-	cd $1 
+	cd $1
 
 	#start express server
 	DEBUG=$1:* ./bin/www
