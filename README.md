@@ -15,6 +15,6 @@ Vagrant Development Environment for Kick-Starting Developing an application in t
 * That's it you have a base application using the MEAN Stack as coined by [Valeri Karpov](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and)
 
 #### Environment Details
-    * Application Server IP = 192.168.1.11
-    * MongoDb Server IP = 192.168.1.12
+    * Application Server IP = 192.168.1.12
+    * MongoDb Server IP = 192.168.1.11
 
